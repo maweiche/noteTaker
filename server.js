@@ -8,10 +8,14 @@ const app = express();
 
 
 //request data
-const notes  = require('./db/db.json');
+const{ notes } = require('./db/db.json');
 
 //function for taking data and adding it to db.json
 function createNote (body, notesArray) {
     const note = body;
     notesArray.push(note);
-}
+
+    //write file
+    fs.writeFileSync(path.join(__dirname, './data/db.json'), JSON.stringify({ notes : notesArray }, null, 2));
+    return note;
+};
