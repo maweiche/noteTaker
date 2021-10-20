@@ -17,5 +17,11 @@ function createNote (body, notesArray) {
 
     //write file
     fs.writeFileSync(path.join(__dirname, './data/db.json'), JSON.stringify({ notes : notesArray }, null, 2));
+    console.log(note);
     return note;
 };
+
+//route get
+app.get('/api/notes', (req, res) => {
+    res.json(notes);
+})
