@@ -7,6 +7,12 @@ const app = express();
 
 
 
+app.use(express.urlencoded ( { extended: true}));
+app.use(express.json());
+app.use(express.static('public'));
+
+
+
 //request data
 const{ notes } = require('./db/db.json');
 
