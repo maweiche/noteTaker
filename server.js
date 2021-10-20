@@ -25,3 +25,8 @@ function createNote (body, notesArray) {
 app.get('/api/notes', (req, res) => {
     res.json(notes);
 })
+
+//route to server
+app.post('/api/notes', (req, res) => {
+    
+})
