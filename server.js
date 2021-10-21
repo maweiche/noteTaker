@@ -23,7 +23,7 @@ function createNewNote (body, notesArray) {
 
     //write file
     fs.writeFileSync(
-        path.join(__dirname, './data/db.json'),
+        path.join(__dirname, './db/db.json'),
         JSON.stringify({ notes : notesArray }, null, 2)
     );
     console.log(note);
