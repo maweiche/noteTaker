@@ -22,10 +22,15 @@ function createNote (body, notesArray) {
     notesArray.push(note);
 
     //write file
-    fs.writeFileSync(path.join(__dirname, './data/db.json'), JSON.stringify({ notes : notesArray }, null, 2));
+    fs.writeFileSync(
+        path.join(__dirname, './data/db.json'),
+        JSON.stringify({ notes : notesArray }, null, 2)
+    );
     console.log(note);
     return note;
 };
+
+
 
 //route get
 app.get('/api/notes', (req, res) => {
@@ -34,5 +39,15 @@ app.get('/api/notes', (req, res) => {
 
 //route to server
 app.post('/api/notes', (req, res) => {
-    
+    req.body.id = notes.length.toString();
 })
+
+//route to index.html
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, './public/index.html'));
+})
+
+//add listen method
+app.listen(PORT, () = {
+    console.log(`API active on port ${PORT}`);
+});
