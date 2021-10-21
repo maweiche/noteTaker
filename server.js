@@ -30,16 +30,27 @@ function createNote (body, notesArray) {
     return note;
 };
 
-
+//note validation
+function validateNote (note) {
+    if (!note.title || typeof note.title !== "string") {
+        return false;
+    }
+    if (!note.text || typeof note.text !== "string") {
+        return false;
+    }
+    return true;
+};
 
 //route get
 app.get('/api/notes', (req, res) => {
     res.json(notes);
 });
 
-//route to server
+//route to post notes to server
 app.post('/api/notes', (req, res) => {
     req.body.id = notes.length.toString();
+
+    
 });
 
 //route to index.html
