@@ -35,19 +35,24 @@ function createNote (body, notesArray) {
 //route get
 app.get('/api/notes', (req, res) => {
     res.json(notes);
-})
+});
 
 //route to server
 app.post('/api/notes', (req, res) => {
     req.body.id = notes.length.toString();
-})
+});
 
 //route to index.html
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, './public/index.html'));
-})
+});
+
+//route to notes.html
+app.get('/notes', (req, res) => {
+    res.sendFile(path.join(__dirname, './public/notes.html'));
+});
 
 //add listen method
-app.listen(PORT, () = {
+app.listen(PORT, () => {
     console.log(`API active on port ${PORT}`);
 });
