@@ -4,16 +4,6 @@
       "title": "Test Title",
       "text": "Test text",
       "id": "testID"
-    },
-    {
-      "title": "did this work?",
-      "text": "without an error? \ni sure hope so.",
-      "id": "1"
-    },
-    {
-      "title": "Yay!!!",
-      "text": "It worked it worked it worked!",
-      "id": "2"
     }
   ]
 }
