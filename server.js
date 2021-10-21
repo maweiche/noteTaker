@@ -17,7 +17,7 @@ app.use(express.static('public'));
 const{ notes } = require('./db/db.json');
 
 //function for taking data and adding it to db.json
-function createNote (body, notesArray) {
+function createNewNote (body, notesArray) {
     const note = body;
     notesArray.push(note);
 
@@ -50,7 +50,13 @@ app.get('/api/notes', (req, res) => {
 app.post('/api/notes', (req, res) => {
     req.body.id = notes.length.toString();
 
-    
+    //if data in req.body is wrong, send error
+    if (!validateNote(req.body)) {
+        res.status(400).send('Note is not formatted properly.');
+    }else {
+        const note = createNewNote(req.body, notes);
+        res.json(note);
+    }
 });
 
 //route to index.html
